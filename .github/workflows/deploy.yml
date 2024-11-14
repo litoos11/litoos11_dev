@@ -4,6 +4,9 @@ on:
     branches:
       - main # o la rama principal que uses
 
+permissions:
+  contents: write # necesario para escribir en la rama
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,7 +26,14 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.email "litoos11@outlook.com"
+          git config --global user.name "litoos11"
+          cd dist #directorio de salida
+          git init
+          git remote add origin https://github.com/${{ github.repository }}
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push --force origin master:gh-pages
