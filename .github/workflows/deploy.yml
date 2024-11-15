@@ -33,7 +33,7 @@ jobs:
           git config --global user.name "litoos11"
           cd dist #directorio de salida
           git init
-          git remote add origin https://${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git remote add origin https://${GH_TOKEN}@github.com/${{ github.repository }}
           git add .
           git commit -m "Deploy to GitHub Pages"
-          git push --force "https://${GITHUB_TOKEN}@github.com/${{ github.repository }}.git" HEAD:gh-pages
+          git push --force "https://${GH_TOKEN}@github.com/${{ github.repository }}.git" HEAD:gh-pages
