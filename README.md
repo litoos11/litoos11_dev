@@ -91,13 +91,6 @@ Contenido del archivo `CNAME` en la rama gh-pages y custom domain del page
 www.litoos11.com
 ```
 
-Contenido del archivo `CNAME` en la rama main
-```bash
-# Dominio propio
-litoos11.com
-```
-
-
 1. Abre [**http://localhost:4321**](http://localhost:4321/) en tu navegador para ver el resultado 🚀
 
 
