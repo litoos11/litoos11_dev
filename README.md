@@ -82,6 +82,21 @@ Edita el archivo `cv.json` para crear tu propio Portafolio/CV imprimible.
 pnpm dev
 ```
 
+### 4. Archivos necesarios para desplegar en github pages y dominio propio
+![image](https://github.com/user-attachments/assets/b200a9ab-8dd1-494b-80bb-9e20d885a620)
+
+Contenido del archivo `CNAME` en la rama gh-pages y custom domain del page
+```bash
+# Dominio propio
+www.litoos11.com
+```
+
+Contenido del archivo `CNAME` en la rama main
+```bash
+# Dominio propio
+litoos11.com
+```
+
 
 1. Abre [**http://localhost:4321**](http://localhost:4321/) en tu navegador para ver el resultado 🚀
 
