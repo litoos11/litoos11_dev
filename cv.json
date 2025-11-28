@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Angel Ortíz Sarmiento",
-    "label": "Full Stack Developer .net con más de 8 años de experiencia",
+    "label": "Full Stack Developer .net con más de 10 años de experiencia",
     "image": "/me.webp",
     "email": "angel.ortiz.sarmiento@gmail.com",
     "phone": "+54 2292194912",
     "url": "https://litoos11.dev",
-    "summary": "+8 años de experiencia como Desarrollador C# .net. Vivo en Veracruz, México. He trabajado en diferentes empresas enfocado principalmente en desarrollos de sistemas administrativos y erp, generando y modificando módulos como facturación, contabilidad, clientes, proveedores, entre otros.",
+    "summary": "+10 años de experiencia como Desarrollador C# .net. Vivo en Veracruz, México. He trabajado en diferentes empresas enfocado principalmente en desarrollos de sistemas administrativos y erp, generando y modificando módulos como facturación, contabilidad, clientes, proveedores, entre otros.",
     "location": {
       "address": "",
       "postalCode": "91808",
@@ -125,7 +125,22 @@
       "keywords": ["Desarrollo Web", "Backend", "Servidor"]
     },
     {
+      "name": "Azure cloud",
+      "level": "Avanzado",
+      "keywords": ["Desarrollo Web", "Backend", "Servidor"]
+    },
+    {
+      "name": "AWS cloud",
+      "level": "Avanzado",
+      "keywords": ["Desarrollo Web", "Backend", "Servidor"]
+    },
+    {
       "name": "MVC",
+      "level": "Avanzado",
+      "keywords": ["Desarrollo Web", "Backend", "Servidor"]
+    },
+    {
+      "name": "Docker/Podman",
       "level": "Avanzado",
       "keywords": ["Desarrollo Web", "Backend", "Servidor"]
     },
@@ -146,6 +161,11 @@
     },
     {
       "name": "Dapper",
+      "level": "Avanzado",
+      "keywords": ["Desarrollo Web", "Backend", "Servidor"]
+    },
+    {
+      "name": "Entity Framework",
       "level": "Avanzado",
       "keywords": ["Desarrollo Web", "Backend", "Servidor"]
     },
@@ -256,7 +276,12 @@
     },
     {
       "name": "Crystal Reports",
-      "level": "Master",
+      "level": "Avanzado",
+      "keywords": ["Desarrollo Web", "Frontend", "Backend"]
+    },
+    {
+      "name": "Stimulsoft Reports",
+      "level": "Avanzado",
       "keywords": ["Desarrollo Web", "Frontend", "Backend"]
     }
   ],
