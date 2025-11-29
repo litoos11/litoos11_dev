@@ -1,4 +1,5 @@
 ---
+import ThemeToggle from "@/components/ThemeToggle.astro";
 import { basics } from "@cv";
 
 interface Props {
@@ -18,33 +19,10 @@ const { image, summary } = basics;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={image} />
-    <!-- === Script para mantener tema persistente === -->
-    <script>
-      // aplicar el tema antes que cargue el DOM (evita flash blanco)
-      if (localStorage.theme === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
   </head>
   <body>
-    <!-- Toggle minimalista -->
-    <button
-      class="theme-toggle no-print"
-      onclick="toggleTheme()"
-      aria-label="Cambiar tema"
-    >
-      <span class="light">☀️</span>
-      <span class="dark">🌙</span>
-    </button>
+    <ThemeToggle />
     <slot />
-    <!-- Script de toggle -->
-    <script>
-      window.toggleTheme = () => {
-        const html = document.documentElement;
-        const isDark = html.classList.toggle("dark");
-        localStorage.theme = isDark ? "dark" : "light";
-      };
-    </script>
   </body>
 </html>
 

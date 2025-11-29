@@ -1,0 +1,27 @@
+---
+
+---
+
+<!-- Toggle minimalista -->
+<button
+  class="theme-toggle no-print"
+  onclick="toggleTheme()"
+  aria-label="Cambiar tema"
+>
+  <span class="light">☀️</span>
+  <span class="dark">🌙</span>
+</button>
+
+<!-- Script de toggle -->
+<script>
+  window.toggleTheme = () => {
+    const html = document.documentElement;
+    const isDark = html.classList.toggle("dark");
+    localStorage.theme = isDark ? "dark" : "light";
+  };
+
+  // aplicar el tema antes que cargue el DOM (evita flash blanco)
+  if (localStorage.theme === "dark") {
+    document.documentElement.classList.add("dark");
+  }
+</script>
