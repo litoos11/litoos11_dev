@@ -1,13 +1,12 @@
 ---
-import { basics } from "@cv"
+import { basics } from "@cv";
 
 interface Props {
-  title: string
+  title: string;
 }
 
-const { title } = Astro.props
-
-const { image, summary } = basics
+const { title } = Astro.props;
+const { image, summary } = basics;
 ---
 
 <!doctype html>
@@ -19,13 +18,55 @@ const { image, summary } = basics
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={image} />
+    <!-- === Script para mantener tema persistente === -->
+    <script>
+      // aplicar el tema antes que cargue el DOM (evita flash blanco)
+      if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body>
+    <!-- Toggle minimalista -->
+    <button
+      class="theme-toggle no-print"
+      onclick="toggleTheme()"
+      aria-label="Cambiar tema"
+    >
+      <span class="light">☀️</span>
+      <span class="dark">🌙</span>
+    </button>
     <slot />
+    <!-- Script de toggle -->
+    <script>
+      window.toggleTheme = () => {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle("dark");
+        localStorage.theme = isDark ? "dark" : "light";
+      };
+    </script>
   </body>
 </html>
 
 <style is:global>
+  /* ================================ */
+  /*   Variables de color del tema    */
+  /* ================================ */
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --secondary-text: #666;
+  }
+
+  .dark {
+    --bg-color: #383838;
+    --text-color: #e8e8e8;
+    --secondary-text: #aaaaaa;
+  }
+
+  /* ================================ */
+  /*      Estilos generales           */
+  /* ================================ */
   html {
     font-family:
       Menlo,
@@ -34,8 +75,12 @@ const { image, summary } = basics
       "Courier New",
       Courier,
       monospace;
-    background: #fff;
+    background: var(--bg-color);
+    color: var(--text-color);
     letter-spacing: -0.025rem;
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
   }
 
   body,
@@ -52,6 +97,7 @@ const { image, summary } = basics
     list-style: none;
     margin: 0;
     padding: 0;
+    color: var(--text-color);
   }
 
   *,
@@ -63,7 +109,8 @@ const { image, summary } = basics
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  time {
     margin: 0;
     font-family:
       system-ui,
@@ -77,16 +124,51 @@ const { image, summary } = basics
       "Open Sans",
       "Helvetica Neue",
       sans-serif;
+    color: var(--secondary-text);
   }
 
   p {
-    color: #666;
+    color: var(--text-color);
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
     text-wrap: pretty;
   }
 
+  /* ================================ */
+  /*      Toggle de tema              */
+  /* ================================ */
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0.3rem;
+    z-index: 50;
+  }
+
+  .theme-toggle .light {
+    display: inline;
+  }
+
+  .theme-toggle .dark {
+    display: none;
+  }
+
+  html.dark .theme-toggle .light {
+    display: none;
+  }
+  html.dark .theme-toggle .dark {
+    display: inline;
+  }
+
+  /* ================================ */
+  /*             PRINT                */
+  /* ================================ */
   .print {
     display: none !important;
   }
