@@ -11,9 +11,9 @@
     "postbuild": "cp CNAME dist/CNAME && cp .nojekyll dist/.nojekyll"
   },
   "dependencies": {
-    "@astrojs/check": "0.4.1",
-    "astro": "^5.16.2",
+    "@astrojs/check": "0.9.6",
+    "astro": "^5.16.4",
     "ninja-keys": "1.2.2",
-    "typescript": "5.3.3"
+    "typescript": "5.9.3"
   }
 }
